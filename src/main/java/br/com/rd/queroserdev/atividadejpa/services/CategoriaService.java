@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import br.com.rd.queroserdev.atividadejpa.entities.Categoria;
+import br.com.rd.queroserdev.atividadejpa.entities.Produto;
 import br.com.rd.queroserdev.atividadejpa.repository.CategoriajpaRepository;
 
 
@@ -30,4 +31,11 @@ public class CategoriaService {
 
 	}
 
-}
+	public void save(Categoria categoria) {
+		
+		
+			repository.save(categoria);
+		}
+		
+	}
+

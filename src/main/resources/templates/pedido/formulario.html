@@ -10,11 +10,17 @@
 
 <body>
 	<div class="container">
-		<div class="jumbotron mb-0">
+		<div class="p-3 mb-2 bg-dark text-white">
 			<h1 class="display-4">Novo Produto</h1>
 		</div>
 		
 		<div class="card mt-3">
+		
+		<div class="row p-3" sec:authorize="isAuthenticated()">
+		<nav class="nav">
+		<a  class="nav-link p-3 mb-2 text-warning" href="/categorias/home">Home</a>
+		</nav>
+		</div>
 			<form class="card-body" action="/produtos/novo" method="POST">
 				
 				
@@ -25,17 +31,22 @@
 					<small>Informe qual o nome do produto.</small>
 				</div>
 
-					<div class="form-group">
-					<label for="nomeProduto">Categoria</label>
-					<input class="form-control"  name="categoria" placeholder="nome da categoria"/>
-					<small>Informe qual o nome da categoria do produto.</small>
-				</div>
+					
+					<div>
+			<!--  <select
+				style="background-color: rgb(255, 255, 255);" id="categoria"
+				name="categoria" class="form-select form-select-md"
+				th:field="*{categorias}">
+				<option th:each="categoria : ${categorias}"
+					th:value="${categoria.id}" th:text="${categoria.nome}"></option>
+			</select>
+			--></div>
 
-				<div class="form-group">
+				<div class="form-group mt-4">
 					<label for="descricao">Descrição</label>
 					<textarea class="form-control" name="descricao" placeholder="Adicione detalhes importantes para ajudar o comprador"></textarea>
 				</div>
-				<button class="btn btn-primary mt-4" >Cadastrar</button>			
+				<button class="btn btn-warning mt-4" >Cadastrar</button>			
 			</form>
 		</div>
 	</div>

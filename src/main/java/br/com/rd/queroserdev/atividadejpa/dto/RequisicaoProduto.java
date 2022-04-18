@@ -2,6 +2,7 @@ package br.com.rd.queroserdev.atividadejpa.dto;
 
 import javax.validation.constraints.NotBlank;
 
+import br.com.rd.queroserdev.atividadejpa.entities.Categoria;
 import br.com.rd.queroserdev.atividadejpa.entities.Produto;
 
 public class RequisicaoProduto {
@@ -10,7 +11,7 @@ public class RequisicaoProduto {
 	private String nomeProduto;
 	
 	@NotBlank
-	private String categoria;
+	private String nomeCategoria;
 	
 	@NotBlank
 	private String descricao;
@@ -27,12 +28,12 @@ public class RequisicaoProduto {
 
 
 	public String getCategoria() {
-		return categoria;
+		return nomeCategoria;
 	}
 
 
 	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+		this.nomeCategoria = categoria;
 	}
 
 
@@ -49,19 +50,17 @@ public class RequisicaoProduto {
 	public Produto toproduto() {
 		Produto produto = new Produto();
 		produto.setDescricao(descricao);
-		pedido.setUrlProduto(urlProduto);
-		pedido.setNomeProduto(nomeProduto);
+		produto.setNome(nomeProduto);
 
-		return pedido;
+		return produto;
 	}
 	
 	
 	public Categoria tocategoria() {
 		Categoria categoria = new Categoria();
-		categoria.setDescricao(descricao);
-		pedido.setNomeProduto(nomeProduto);
+		categoria.setNome(nomeCategoria);
 
-		return pedido;
+		return categoria;
 	}
 	
 	
